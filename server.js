@@ -17,8 +17,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // 2. Kết nối MongoDB
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/chat-app')
-    .then(() => console.log('✅ Kết nối MongoDB thành công'))
-    .catch(err => console.error('❌ Lỗi kết nối:', err));
+    .then(() => console.log('Kết nối MongoDB thành công'))
+    .catch(err => console.error('Lỗi kết nối:', err));
 
 // 3. Khai báo (Mount) các Routes
 // Lưu ý: Tên file trong require() phải khớp với tên file thực tế trong thư mục routes/ của bạn
@@ -30,4 +30,4 @@ app.use('/messages', require('./routes/messages'));
 
 // 4. Khởi chạy Server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🚀 Server chạy tại http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server chạy tại http://localhost:${PORT}`));
