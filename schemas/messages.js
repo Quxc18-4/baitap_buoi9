@@ -1,5 +1,19 @@
 const mongoose = require("mongoose");
 
+const contentMessage = new mongoose.Schema(
+    {
+        type: {
+            type: String,
+            enum: ["file", "text"],
+            required: true
+        },
+        content: {
+            type: String,
+            required: true
+        }
+    }
+)
+
 const messageSchema = new mongoose.Schema(
     {
         from: {
@@ -12,17 +26,7 @@ const messageSchema = new mongoose.Schema(
             ref: "user",
             required: true
         },
-        contentMessage: {
-            type: {
-                type: String,
-                enum: ["file", "text"],
-                required: true
-            },
-            content: {
-                type: String,
-                required: true
-            }
-        }
+        contentMessage: contentMessage
     },
     {
         timestamps: true
